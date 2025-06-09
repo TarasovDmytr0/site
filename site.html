@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My site</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body id="top">
+    <header>
+        <h1 class="rainbow-text">Сайт Дмитра</h1>
+    </header>
+
+    <nav>
+        <a href="#link1"><button class="button-36" role="button">Прямокутник</button></a>
+        <a href="#link10"><button class="button-36" role="button">Космос</button></a>
+        <a href="#link11"><button class="button-36" role="button">Герой</button></a>
+        <a href="#link2"><button class="button-36" role="button">Логін</button></a>
+        <a href="#link12"><button class="button-36" role="button">Перевірка</button></a>
+        <a href="#link13"><button class="button-36" role="button">Рівень</button></a>
+        <a href="#link14"><button class="button-36" role="button">Пори року</button></a>
+        <a href="#link15"><button class="button-36" role="button">Емоджі</button></a>
+        <a href="#link16"><button class="button-36" role="button">Вгадайка</button></a>
+        <a href="#link3"><button class="button-36" role="button">Рівняння</button></a>
+        <a href="#link4"><button class="button-36" role="button">Факторіал</button></a>
+        <a href="#link5"><button class="button-36" role="button">Фібоначі</button></a>
+        <a href="#link6"><button class="button-36" role="button">Степінь</button></a>
+        <a href="#link7"><button class="button-36" role="button">Числа</button></a>
+        <a href="#link8"><button class="button-36" role="button">Комплименти</button></a>
+        <a href="#link9"><button class="button-36" role="button">Сортування</button></a>
+        <a href="#link17"><button class="button-36" role="button">Квадрати</button></a>
+        <a href="#link18"><button class="button-36" role="button">Шахівниця</button></a>
+        <a href="#link19"><button class="button-36" role="button">Квітка</button></a>
+        <a href="#link20"><button class="button-36" role="button">Про себе</button></a>
+    </nav>
+
+    <main>
+        <div id="back-top"><a href="#top"><img src="https://sdmntprukwest.oaiusercontent.com/files/00000000-541c-6243-a370-ac55273a51dd/raw?se=2025-06-09T13%3A57%3A42Z&sp=r&sv=2024-08-04&sr=b&scid=2823f558-3ccb-554d-a1e0-f629f68c1176&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-08T23%3A00%3A35Z&ske=2025-06-09T23%3A00%3A35Z&sks=b&skv=2024-08-04&sig=xyYIVAd5%2B7ZRULi4Y/94rZrktV8rFOgUNbIz6Kbl/Hw%3D" width="100px"></a></div>
+        
+        <script>
+            window.addEventListener('scroll', function() {
+                let backButton = document.getElementById('back-top')
+                if (backButton) {
+                    backButton.style.display = window.scrollY > 200 ? 'block' : 'none'
+                }
+            })
+        </script>
+
+        <article>
+            <h2 id="link1">Периметр та площа прямокутника</h2>
+
+            <label for="sizeA1">Сторона 'a': </label>
+            <input type="number" id="sizeA1">
+            <label for="sizeB1">Сторона 'b': </label>
+            <input type="number" id="sizeB1">
+
+            <button class="myButton" onclick="CalculaterRectangle()">Обчислити</button>
+
+            <p id="perimeterResult">Периметр прямокутника:</p>
+            <p id="squareResult">Площа прямокутника:</p>
+        </article>
+
+         <script>   
+            function CalculaterRectangle() {
+            const a = parseInt(document.getElementById('sizeA1').value)
+            const b = parseInt(document.getElementById('sizeB1').value)
+
+            if (isNaN(a) || isNaN(b) || (a == 0) || (b == 0)) {
+                document.getElementById('perimeterResult').innerHTML = `Введіть довжини сторін 'a' та 'b'`
+                document.getElementById('squareResult').innerHTML = ``
+                return
+            }
+            else if((a < 0) || (b < 0)){
+                document.getElementById('perimeterResult').innerHTML = `Довжина не може бути відемною`
+                document.getElementById('squareResult').innerHTML = ``
+                return
+            }
+
+            let Per = 2*(a+b)
+            let Squar = a*b
+
+            document.getElementById('perimeterResult').innerHTML = `Периметр прямокутника: ${Per}`
+            document.getElementById('squareResult').innerHTML = `Площа прямокутника: ${Squar}`
+            }
+        </script>
+
+        <article>
+            <h2 id="link10">Політ в космос</h2>
+
+            <p for="year1961">В якому році вперше з космосу повернулася людина живою?</p>
+            <input type="number" id="year1961">
+            <button class="myButton" onclick="SpaceYear()">Перевірити</button>
+
+            <p id="yearResult"></p>
+        </article>
+
+         <script>   
+            function SpaceYear() {
+                const spaceYear = parseInt(document.getElementById('year1961').value)
+
+                if (isNaN(spaceYear)){
+                    document.getElementById('yearResult').innerHTML = `Введіть рік!`
+                }
+                else if (spaceYear < 1961) {
+                    document.getElementById('yearResult').innerHTML = `Та ні, це щось дуже рано!`
+                }
+                else if (spaceYear > 1961) {
+                    document.getElementById('yearResult').innerHTML = `О ні, в цей час вже багато хто повернувся!`
+                }
+                else if (spaceYear == 1961) {
+                    document.getElementById('yearResult').innerHTML = `Так, Ваша відповідь правильна!`
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link11">Вгадай героя</h2>
+
+            <p for="name1961">Як звали людину, яка перша повернулася з космосу живою?</p>
+            <input type="text" id="name1961">
+            <button class="myButton" onclick="NameYear()">Перевірити</button>
+
+            <p id="nameResult"></p>
+        </article>
+
+         <script>   
+            function NameYear() {
+                const nameYear = document.getElementById('name1961').value.toLowerCase()
+
+                if (nameYear == ``){
+                    document.getElementById('nameResult').innerHTML = `Введіть им&#39;я!`
+                }
+                else if (nameYear == `гагарін`) {
+                    document.getElementById('nameResult').innerHTML = `Молодець, Ваша відповідь правильна!`
+                }
+                else if (nameYear != `гагарін`) {
+                    document.getElementById('nameResult').innerHTML = `Спробуй ще раз!`
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link2">Авторизуйтесь в системі</h2>
+
+            <label for="login1" style="margin-left: 18px;">Ведіть логін: </label>
+            <input type="text" id="login1">
+            <br>
+            <label for="password1">Ведіть пароль: </label>
+            <input type="text" id="password1">
+            <br>
+            <button class="myButton" onclick="LoginSystem()" style="margin-left: 150px;">Вхід</button>
+
+            <p id="logIn1"></p>
+        </article>
+
+        <script>
+            function LoginSystem() {
+                const login = document.getElementById('login1').value.toLowerCase()
+                const password = document.getElementById('password1').value
+
+                if (login != "user") {
+                    document.getElementById('logIn1').innerHTML = `Ви ввели невірний логін або пароль`
+                }
+                else if (login == "user") {
+                    if (password != "password"){
+                        document.getElementById('logIn1').innerHTML = `Ви ввели невірний логін або пароль`
+                    }
+                    else if (password == password) {
+                        document.getElementById('logIn1').innerHTML = `Ласкаво просимо`
+                    }
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link12">Перевірка на вік</h2>
+
+            <p for="yearMy">Введіть свій вік</p>
+            <input type="number" id="yearMy">
+            <button class="myButton" onclick="CheckinYear()">Перевірити</button>
+
+            <p id="myYearResult"></p>
+        </article>
+
+         <script>   
+            function CheckinYear() {
+                const year = parseInt(document.getElementById('yearMy').value)
+
+                if (isNaN(year)){
+                    document.getElementById('myYearResult').innerHTML = `Введіть свій вік!`
+                }
+                else if (year < 14) {
+                    document.getElementById('myYearResult').innerHTML = `Прохід заборонено. Прийдіть колі вам буде 14 років.`
+                }
+                else {
+                    document.getElementById('myYearResult').innerHTML = `Прохід дозволено.`
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link13">Напиші оцінку и дізнайся свій рівень</h2>
+
+            <p for="gradeMy">Яку оцінку ви отримали?</p>
+            <input type="number" id="gradeMy">
+            <button class="myButton" onclick="CheckinGrade()">Перевірити</button>
+
+            <p id="gradeResult"></p>
+        </article>
+
+         <script>   
+            function CheckinGrade() {
+                const grade = parseInt(document.getElementById('gradeMy').value)
+
+                if (isNaN(grade)){
+                    document.getElementById('gradeResult').innerHTML = `Введіть свою оцінку!`
+                }
+                else if (grade > 12) {
+                    document.getElementById('gradeResult').innerHTML = `Оцінка не може бути більше 12.`
+                }
+                else if (grade < 1) {
+                    document.getElementById('gradeResult').innerHTML = `Оцінка не може бути менше 1.`
+                }
+                else if (grade < 4) {
+                    document.getElementById('gradeResult').innerHTML = `Як так можна.`
+                }
+                else if (grade < 7) {
+                    document.getElementById('gradeResult').innerHTML = `Низький рівень знань.`
+                }
+                else if (grade < 10) {
+                    document.getElementById('gradeResult').innerHTML = `Середній рівень знань.`
+                }
+                else if (grade < 13) {
+                    document.getElementById('gradeResult').innerHTML = `Молодець. Високий рівень знань.`
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link14">Пори року</h2>
+
+            <p for="seasonsNum">Введіть номер місяця</p>
+            <input type="number" id="seasonsNum">
+            <button class="myButton" onclick="CheckinSeasonsNum()">Перевірити</button>
+
+            <p id="seasonsResult"></p>
+        </article>
+
+         <script>   
+            function CheckinSeasonsNum() {
+                const month = parseInt(document.getElementById('seasonsNum').value)
+
+                if (isNaN(month)){
+                    document.getElementById('seasonsResult').innerHTML = `Введіть номер місяця`
+                }
+                else{
+                    switch(month) {
+                        case 1:
+                        case 2:
+                        case 12:
+                            document.getElementById('seasonsResult').innerHTML = `Зима.`
+                        break;
+                        case 3:
+                        case 4:
+                        case 5:
+                            document.getElementById('seasonsResult').innerHTML = `Весна.`
+                        break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            document.getElementById('seasonsResult').innerHTML = `Літо.`
+                        break;
+                        case 9:
+                        case 10:
+                        case 11:
+                            document.getElementById('seasonsResult').innerHTML = `Осінь.`
+                        break;
+                        default:
+                            document.getElementById('seasonsResult').innerHTML = `Такого місяця не існує.`
+                    }
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link15">Емоджі з кодом</h2>
+            <p>Введить номера емоджі які ви хочете вівести</p>
+
+            <form name="emodgy" action="javascript:СalculateSmile()">
+                початковій номер <input name="n1" type="number" value="128512" size="4">
+                кінцевий номер <input  name="n2" type="number" value="128591" size="4">
+                <br>
+                <input class="myButton" type="submit" value="Вивести">
+                <input class="myButton" type="reset" name="reset" value="Скинути">
+            </form>
+
+            <p id="smileResult"></p>
+        </article>
+
+        <script>
+            function СalculateSmile(){
+                let min = parseInt(document.emodgy.n1.value)
+                let max = parseInt(document.emodgy.n2.value)
+
+                if (isNaN(min) || isNaN(max)){
+                    document.getElementById('smileResult').innerHTML = `Введіть номера емоджі`
+                    return
+                }
+                else if ((max - min) < 0) {
+                    let num = min
+                    min = max
+                    max = num
+                }
+
+                if ((max - min) > 500) {
+                    document.getElementById('smileResult').innerHTML = `для коректної роботи введіть менший діапазан`
+                } 
+                else {
+                    let stringi = ""
+                    let counter = 0
+                    for (let i = min; i <= max; i++) {
+                        counter++
+                        stringi = `${stringi} &#${i}; - &amp#${i}`
+                        if ((counter % 4) == 0) {
+                            stringi = `${stringi} <br>`
+                        }
+                    }
+                    document.getElementById('smileResult').innerHTML = stringi
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link16">Вгадай число в заданному діапазоні</h2>
+            <p>Введить межі діапазона</p>
+
+            <form name="game" action="javascript:СalculateGame()">
+                початкове число <input name="n1" type="number" value="1" size="4">
+                кінцеве число <input  name="n2" type="number" value="100" size="4">
+                <input class="myButton" type="submit" value="Згенерувати">
+                <input class="myButton" type="reset" name="reset" value="Скинути">
+            </form>
+
+            <label for="guessNum">вгадайте число</label>
+            <input type="number" id="guessNum">
+            <button class="myButton" onclick="CheckinGuessNum()">Перевірити</button>
+
+            <p id="gameResult"></p>
+        </article>
+
+        <script>
+            let numberForGuess = 0
+            function СalculateGame(){
+                let min = parseInt(document.game.n1.value)
+                let max = parseInt(document.game.n2.value)
+
+                if (isNaN(min) || isNaN(max)){
+                    document.getElementById('gameResult').innerHTML = `Введить межі діапазона`
+                    return
+                }
+                else if (min <= 0 || max <= 0)
+                {
+                    document.getElementById('gameResult').innerHTML = `Введить число більше нуля`
+                    return
+                }
+                else if ((max - min) < 0) {
+                    let num = min
+                    min = max
+                    max = num
+                }
+                numberForGuess = Math.floor(min + Math.random ()*(max+1-min))
+                document.getElementById('gameResult').innerHTML = `Число згенероване`
+            }
+
+            function CheckinGuessNum() {
+                let numberG = document.getElementById('guessNum').value
+
+                if (numberForGuess == 0) {
+                    document.getElementById('gameResult').innerHTML = `Введить межі діапазона та натисніть 'Згенеруваати'`
+                    return
+                }
+                if (numberG == ''){
+                    document.getElementById('gameResult').innerHTML = `Введить число в поле 'Вгадайте число'`
+                    return
+                }
+
+                if (numberG > numberForGuess) {
+                    document.getElementById('gameResult').innerHTML = `Загадане число меньше`
+                }
+                else if (numberG < numberForGuess) {
+                    document.getElementById('gameResult').innerHTML = `Загадане число більше`
+                }
+                else if (numberG == numberForGuess) {
+                    document.getElementById('gameResult').innerHTML = `Ви вгадали число!!!`
+                    numberForGuess = 0
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link3">Розв'язок квадратного рівняння</h2>
+            <p>a&middot;x&sup2; + b&middot;x + c = 0</p>
+
+            <form name="qef" action="javascript:Quadratic_Equation()">
+                a <input name="a" type="number" value="1" size="4">
+                b <input  name="b" type="number" value="2" size="4">
+                c <input  name="c" type="number" value="-3" size="4">
+                <br>
+                <input class="myButton" type="submit" value="Розрахувати">
+                <input class="myButton" type="reset" name="reset" value="Скинути">
+            </form>
+
+            <p id="qe_sol">Введить коефіцієнти та натисніть "Розрахувати"</p>
+        </article>
+
+        <script>
+            function Quadratic_Equation() {
+                let a = document.qef.a.value;
+                let b = document.qef.b.value;
+                let c = document.qef.c.value;
+                let string = ``
+                let sol = document.getElementById("qe_sol");
+
+                if (isNaN(a) || (a == 0)){
+                    sol.innerHTML = `Введить коефіцієнт 'a'`;
+                    return;
+                }
+
+                let D, x1, x2;
+                D = b**2 - 4*a*c;
+                x1 = ( -b + Math.sqrt(D) ) / (2*a);
+                x2 = ( -b - Math.sqrt(D) ) / (2*a);
+                if ( D > 0 ) {
+                    string ="Рішення: x1 = " + x1 + ", x2 = " + x2 // вивід значення
+                }
+                else if ( D == 0 ) {
+                    string = "Рішення: x = " + x1 ; // вивід значення
+                }
+                else {
+                    string = "квадратне рівняння коренів не має!" ;
+                }
+               sol.innerHTML = string;
+            }
+        </script>
+
+        <article>
+            <h2 id="link4">Обчислення факторіалу числа n</h2>
+
+            <label for="factorialNum">Введіть число (n):</label>
+            <input type="number" id="factorialNum" size="4">
+            <button class="myButton" onclick="СalculateFactorial()">Обчислити</button>
+            
+            <p id="factorialResult"></p>
+        </article>
+
+        <script>   
+            function СalculateFactorial() {
+                const num = parseInt(document.getElementById('factorialNum').value);
+
+                let factorial = 1;
+
+                if (isNaN(num)){
+                    document.getElementById('factorialResult').innerHTML = `Введить число`;
+                    return
+                }
+                else if(num < 0){
+                    document.getElementById('factorialResult').innerHTML = `Введить число більше нуля`;
+                    return
+                }
+
+                for (let i = 1; i <= num; i++) {
+                    factorial *= i;
+                }
+                document.getElementById('factorialResult').innerHTML = `Факторіал числа ${num} = ${factorial}`;
+            }
+        </script>
+
+        <article>
+            <h2 id="link5">Знаходження числа з ряду Фібоначі</h2>
+
+            <label for="fibonachilNum">Введіть номер числа з ряду Фібоначі:</label>
+            <input type="number" id="fibonachilNum" size="4">
+            <button class="myButton" onclick="СalculateFibonachi()">Знайти</button>
+
+            <p id="fibonachiResult"></p>
+        </article>
+
+        <script>   
+            function fibonachiView(stringi,num,calcFibonachi) {
+                return `${stringi}${num}-й елемент ряду Фібоначі становить ${calcFibonachi}<br>`;
+            }
+
+            function СalculateFibonachi() {
+                const num = parseInt(document.getElementById('fibonachilNum').value);
+
+                let fibonachi = 0
+                let calcFibonachi = 1;
+                let stringi = ""
+
+                if (isNaN(num)){
+                    document.getElementById('fibonachiResult').innerHTML = `Введить число`;
+                    return
+                }
+                else if(num < 0){
+                    document.getElementById('fibonachiResult').innerHTML = `Введить число більше нуля`;
+                    return
+                }
+                else if(num >= 0){
+                    stringi = fibonachiView(stringi,0,0)
+                }
+                if(num >= 1){
+                    stringi = fibonachiView(stringi,1,1)
+                }
+                if(num > 1){
+                    for (let i = 1; num != i; i++) {
+                        let tmp = calcFibonachi
+                        calcFibonachi = calcFibonachi + fibonachi
+                        fibonachi = tmp
+                        stringi = fibonachiView(stringi,i+1,calcFibonachi)
+                    }
+                }
+
+                document.getElementById('fibonachiResult').innerHTML = stringi
+            }
+        </script>
+
+        <article>
+            <h2 id="link6">Число в степені</h2>
+
+            <form name="stepin" action="javascript:СalculateSteprn()">
+                a <input name="a" type="number" size="4">
+                b <input  name="b" type="number" size="4">
+                <br>
+                <input class="myButton" type="submit" value="Розрахувати">
+            </form>
+
+            <p id="stepinResult">a<sup>b</sup> = ..</p>
+        </article>
+
+        <script>
+            function СalculateSteprn(){
+                let a = document.stepin.a.value;
+                let b = document.stepin.b.value;
+                let dobytok = 1
+                let result = document.getElementById("stepinResult");
+
+                if (a === "" || b === "" || isNaN(a) || isNaN(b)){
+                    result.innerHTML = `Введіть числа 'a' та 'b'`;
+                    return
+                }
+                else if(b < 0){
+                    result.innerHTML = `Введить 'b' більше нуля`;
+                    return
+                }
+                else if(b == 0){
+                    result.innerHTML = `${a}<sup>${b}</sup> = 1`;
+                    return
+                }
+
+                for (let i=b; i>0; i--) {
+                    dobytok *= a
+                }
+
+                result.innerHTML = `${a}<sup>${b}</sup> = ${dobytok}`;
+            }
+        </script>
+
+        <article>
+            <h2 id="link7">Цифри в числі</h2>
+
+            <label for="bigNumber">Введіть число: </label>
+            <input type="number" id="bigNumber" size="25">
+            <br>
+            <button class="myButton" onclick="DetermineNumbers()">Визначити</button>
+
+            <p id="numbersResult"></p>
+        </article>
+
+        <script>
+            function checkingEnd(number) {
+                let roundNum = number
+                if (roundNum > 100) {
+                    roundNum = roundNum % 100
+                }
+
+                let checkNum = roundNum%10
+                let chislitelnoe
+                let prilagatelnoe
+                if ((checkNum == 1) && (roundNum != 11)) {
+                    chislitelnoe = "цифра"
+                    prilagatelnoe = "парна"
+                }
+                else if ((checkNum > 1) && (checkNum < 5) && ((roundNum < 12) || (roundNum > 14))) {
+                    chislitelnoe = "цифри"
+                    prilagatelnoe = "парні"
+                }
+                else {
+                    chislitelnoe = "цифр"
+                    prilagatelnoe = "парних"
+                }
+                return [chislitelnoe, prilagatelnoe]
+            }
+
+            function DetermineNumbers(){
+                let num = document.getElementById('bigNumber').value
+                let getNR = document.getElementById('numbersResult')
+
+                if (isNaN(num)){
+                    getNR.innerHTML = `Введіть число`;
+                    return
+                }
+
+                let lengNum = num.length
+                let countPar = 0
+                let countNePar = 0
+                let sum = 0
+                let findEnd = checkingEnd(lengNum)
+
+                getNR.innerHTML =`в числі ${num} знаходится ${lengNum} ${findEnd[0]} <br>а саме `
+                for (let i = 0; i < lengNum; i++) {
+                    let oneNum = num.substr(i, 1)
+                    getNR.innerHTML += `${oneNum}, ` /*виводимо по 1*/
+                    if (oneNum % 2 == 0) {
+                        countPar++
+                    }
+                    else {
+                        countNePar++
+                    }
+                    sum = sum + parseInt(oneNum)
+                }
+
+            findEnd = checkingEnd(countPar)
+            getNR.innerHTML += `<br> ${countPar} ${findEnd[1]} ${findEnd[0]},`
+            findEnd = checkingEnd(countNePar)
+            getNR.innerHTML += `<br> ${countNePar} не${findEnd[1]} ${findEnd[0]}.`
+            getNR.innerHTML += `<br> сума цифр: ${sum}.`
+            }
+        </script>
+
+        <article id="complimentsResult">
+            <h2 id="link8">Створи рандомні компліменти</h2>
+
+            <label for="complimentsId">Введіть кількість комплиментів: </label>
+            <input type="number" id="complimentsId" size="25">
+            <button class="myButton" onclick="AddCompliments()">Створити</button>
+
+            <p id="errorId"></p>
+        </article>
+
+        <script>
+            const complimentlist = document.getElementById('complimentsResult').innerHTML
+            function AddCompliments(){
+                const number = parseInt(document.getElementById('complimentsId').value);
+                let resultCompliment = document.getElementById('complimentsResult')
+                let tmpStr = ""
+                
+                if (isNaN(number)) {
+                    document.getElementById('errorId').innerHTML = `Введіть число`
+                    return
+                }
+                else {
+                    document.getElementById('errorId').innerHTML = ``
+                }
+
+                let compliments = ["cool", "clever", "pretty", "funny", "cute", "cheerful", "awesome", "amazing", "incredible"]
+                let animals = ["fox", "rat", "pig", "capybara", "duck", "bug", "eagle", "mouse", "cow"]
+                let colors = ["yellow", "red", "pink", "green", "orange", "white", "purple", "grey", "clyan"]
+                
+                for (let i = 1; i <= number; i++) {
+                    ran1 = Math.floor (Math.random ()*colors.length)
+                    ran2 = Math.floor (Math.random ()*compliments.length)
+                    ran3 = Math.floor (Math.random ()*animals.length)
+
+                    tmpStr +=  `<p style="color: ${colors[ran1]}";>${i})  you are so ${compliments[ran2]} as a ${animals[ran3]} <br></p>`;
+                }
+                resultCompliment.innerHTML = complimentlist + tmpStr
+            }
+        </script>
+
+        <article>
+            <h2 id="link9">Сортування масиву</h2>
+
+            <label style="margin-left:57px;">по назві</label>
+            <button class="myButton" onclick="sortAZ(0)">від "а" до "я"</button>
+            <button class="myButton" onclick="sortZA(0)">від "я" до "а"</button>
+            <br><label>по населенню</label>
+            <button class="myButton" onclick="sortAZ(1)">від меньшого</button>
+            <button class="myButton" onclick="sortZA(1)">від більшого</button>
+
+            <p id="sort"></p>
+        </article>
+
+        <script>
+            let capital = [
+                ["London", 8982],
+                ["Paris", 2161],
+                ["Kyiv", 2884],
+                ["Beijing", 21540],
+                ["Madrid", 3223],
+                ["Washington", 712],
+                ["Warsaw", 1765],
+                ["Stockholm", 975],
+                ["Sofia", 1236],
+                ["Rome", 2873],
+                ["Riga", 632]
+            ]
+            let numberOf = capital.length;
+            let tmpMass = ["",""]
+
+            function writeM(){
+                let tmpsort = ""
+                for(let j = 0; j < numberOf; j++){
+                    tmpsort = tmpsort + `в місті ${capital[j][0]} проживають ${capital[j][1]} тис. людей<br>`
+                }
+                document.getElementById('sort').innerHTML = tmpsort;
+            }
+
+            function sortAZ(index){
+                for(let i = 0; i < numberOf-1; i++) {
+                    for(let j = i+1; j < numberOf; j++) {
+                        if (capital[i][index] > capital[j][index]) {
+                            tmpMass[0] = capital[i][0]
+                            tmpMass[1] = capital[i][1]
+                            capital[i][0] = capital[j][0]
+                            capital[i][1] = capital[j][1]
+                            capital[j][0] = tmpMass[0]
+                            capital[j][1] = tmpMass[1]
+                        }
+                    }
+                }
+                writeM()
+            }
+            function sortZA(index){
+                for(let i = 0; i < numberOf-1; i++) {
+                    for(let j = i+1; j < numberOf; j++) {
+                        if (capital[i][index] < capital[j][index]) {
+                            tmpMass[0] = capital[i][0]
+                            tmpMass[1] = capital[i][1]
+                            capital[i][0] = capital[j][0]
+                            capital[i][1] = capital[j][1]
+                            capital[j][0] = tmpMass[0]
+                            capital[j][1] = tmpMass[1]
+                        }
+                    }
+                }
+                writeM()
+            }
+        </script>
+
+        <article>
+            <h2 id="link17">Створи рандомні квадрати</h2>
+
+            <label for="squareId">Введіть кількість квадратів: </label>
+            <input type="number" id="squareId" size="4">
+            <button class="myButton" onclick="AddSquares()">Створити</button>
+
+            <p id="errorSquareId"></p>
+
+            <canvas id="myCanvas" width="800" height="400"> Your browser does not support the HTML5 canvas tag.</canvas>
+        </article>
+
+        <script>
+            function AddSquares(){
+                const number = parseInt(document.getElementById('squareId').value);
+                let resultCompliment = document.getElementById('errorSquareId')
+                
+                if (isNaN(number)) {
+                    resultCompliment.innerHTML = `Введіть кількість квадратів`
+                    return
+                }
+                else {
+                    resultCompliment.innerHTML = ``
+                }
+
+                let cxt = document.getElementById("myCanvas").getContext("2d")
+                let ranSize
+                let ranX
+                let ranY
+                let color = ["yellow", "red", "pink", "green", "orange", "blue", "purple", "grey"]
+                let colorran
+                cxt.clearRect(0, 0, 800, 400);
+                cxt.strokeStyle = "black"
+                for(let i = 0; i < number; i++) {
+                    colorran = Math.floor(Math.random ()*color.length)
+                    cxt.fillStyle = color[colorran]
+                    ranSize = Math.floor(Math.random ()*100+50)
+                    ranX = Math.floor(Math.random ()*650)
+                    ranY = Math.floor(Math.random ()*250)
+                    cxt.fillRect(ranX, ranY, ranSize, ranSize )
+                    cxt.strokeRect(ranX, ranY, ranSize, ranSize )
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link18">Шахівниця</h2>
+            <canvas id="myCanvas2" width="600" height="600" style="border:5px solid #000000;"> Your browser does not support the HTML5 canvas tag.</canvas>
+        </article>
+
+        <script>
+            let cxt2 = document.getElementById("myCanvas2").getContext("2d")
+            cxt2.fillRect(0, 0, 600, 600)
+
+            for(let y = 0; y < 8; y++) {
+                for(let x = 0; x < 8; x++) {
+                    if ((y + x) % 2 != 0) {
+                        cxt2.clearRect(75 * x , 75 * y, 75, 75)
+                    }
+                }
+            }
+        </script>
+
+        <article>
+            <h2 id="link19">Квітка</h2>
+            <canvas id="myCanvas4" width="600" height="600" style="cursor: pointer;"> Your browser does not support the HTML5 canvas tag.</canvas>
+        </article>
+
+        <script>
+            let canvas = document.getElementById("myCanvas4")
+            let cxt = canvas.getContext("2d")
+            let running = true;
+            let x = canvas.width/2
+            let y = canvas.height/2
+            let m = 0.5
+            let vm = 0.01
+            let delayT = 30
+            let workT = 9000
+
+            function Flower(){
+                //лист1
+                cxt.beginPath();
+                cxt.moveTo(x-35*m,y+150*m);
+                cxt.quadraticCurveTo(x-113*m,y+109*m,x-66*m,y+34*m);
+                cxt.quadraticCurveTo(x+12*m,y+75*m,x-35*m,y+150*m);
+                //лист2
+                cxt.quadraticCurveTo(x-39*m,y+62*m,x+50*m,y+65*m);
+                cxt.quadraticCurveTo(x+53*m,y+153*m,x-35*m,y+150*m);
+                cxt.lineWidth = 2;
+                cxt.lineCap = 'round';
+                cxt.fillStyle = 'green'
+                cxt.strokeStyle = 'black';
+                cxt.fill();
+                cxt.stroke();
+                //стебль
+                cxt.beginPath();
+                cxt.moveTo(x+3*m,y+0*m);
+                cxt.quadraticCurveTo(x+6*m,y+79*m,x-30*m,y+150*m);
+                cxt.lineTo(x-60*m,y+150*m);
+                cxt.quadraticCurveTo(x+1*m,y+87*m,x-3*m,y+0*m);
+                cxt.lineTo(x+3*m,y+0*m);
+                cxt.fillStyle = 'darkgreen'
+                cxt.fill();
+                cxt.stroke();
+                //липесток1
+                cxt.beginPath();
+                cxt.moveTo(x-22*m,y-95*m);
+                cxt.quadraticCurveTo(x+0*m,y-200*m,x+22*m,y-95*m);
+                cxt.fillStyle = 'red'
+                cxt.fill();
+                cxt.stroke();
+                //липесток2
+                cxt.beginPath();
+                cxt.moveTo(x+22*m,y-95*m);
+                cxt.quadraticCurveTo(x+117*m,y-143*m,x+49*m,y-61*m);
+                cxt.fillStyle = 'orange'
+                cxt.fill();
+                cxt.stroke();
+                //липесток3
+                cxt.beginPath();
+                cxt.moveTo(x+49*m,y-61*m);
+                cxt.quadraticCurveTo(x+146*m,y-17*m,x+39*m,y-19*m);
+                cxt.fillStyle = 'yellow'
+                cxt.fill();
+                cxt.stroke();
+                //липесток4
+                cxt.beginPath();
+                cxt.moveTo(x+39*m,y-19*m);
+                cxt.quadraticCurveTo(x+65*m,y+85*m,x+0*m,y+0*m);
+                cxt.fillStyle = 'lightgreen'
+                cxt.fill();
+                cxt.stroke();
+                //липесток5
+                cxt.beginPath();
+                cxt.moveTo(x+0*m,y+0*m);
+                cxt.quadraticCurveTo(x-65*m,y+85*m,x-39*m,y-19*m);
+                cxt.fillStyle = 'skyblue'
+                cxt.fill();
+                cxt.stroke();
+                //липесток6
+                cxt.beginPath();
+                cxt.moveTo(x-39*m,y-19*m);
+                cxt.quadraticCurveTo(x-146*m,y-17*m,x-49*m,y-61*m);
+                cxt.fillStyle = 'blue'
+                cxt.fill();
+                cxt.stroke();
+                //липесток7
+                cxt.beginPath();
+                cxt.moveTo(x-49*m,y-61*m);
+                cxt.quadraticCurveTo(x-117*m,y-143*m,x-22*m,y-95*m);
+                cxt.fillStyle = 'darkmagenta'
+                cxt.fill();
+                cxt.stroke();
+                //голова
+                cxt.beginPath();
+                cxt.arc(x+0*m,y-50*m,50*m,0*Math.PI,2*Math.PI,true);
+                cxt.fillStyle = 'gold'
+                cxt.fill();
+                cxt.stroke();
+                //рот
+                cxt.beginPath();
+                cxt.moveTo(x+28*m,y-31*m);
+                cxt.quadraticCurveTo(x+0*m,y+17*m,x-28*m,y-31*m);
+                cxt.quadraticCurveTo(x+0*m,y-19*m,x+28*m,y-31*m);
+                cxt.fillStyle = 'tomato'
+                cxt.fill();
+                cxt.stroke();
+                //нос
+                cxt.beginPath();
+                cxt.moveTo(x+0*m,y-52*m);
+                cxt.lineTo(x-6*m,y-42*m);
+                cxt.lineTo(x+6*m,y-42*m);
+                cxt.lineTo(x+0*m,y-52*m);
+                cxt.fillStyle = 'black'
+                cxt.fill();
+                cxt.stroke();
+                //око
+                cxt.beginPath();
+                cxt.arc(x-20*m,y-68*m,12*m,0*Math.PI,2*Math.PI,true);
+                cxt.arc(x+20*m,y-68*m,12*m,0*Math.PI,2*Math.PI,true);
+                cxt.fill();
+                //око2
+                cxt.beginPath();
+                cxt.arc(x-18*m,y-68*m,4*m,0*Math.PI,2*Math.PI,true);
+                cxt.arc(x+22*m,y-68*m,4*m,0*Math.PI,2*Math.PI,true);
+                cxt.fillStyle = 'white'
+                cxt.fill();
+            }	
+            
+           /*myCanvas4.onclick = function(){
+                let start = Date.now()
+                let timer = setInterval(function(){
+                    let timpassed = Date.now()-start
+                    
+                    if (m == 2) {running = false}
+                    else if (m == 0.5) {running = true}
+                    if (running) {m += vm}
+                    else {m -= vm}
+                    m = Math.round(m*100)/100
+                    cxt.clearRect(0, 0, canvas.width, canvas.height)
+                    Flower()
+
+                    if (timpassed>workT) {clearInterval(timer)}
+                },delayT)
+            }*/
+
+            function draw() {
+                if (m == 2) {running = false}
+                else if (m == 0.5) {running = true}
+                if (running) {m += vm}
+                else {m -= vm}
+                m = Math.round(m*100)/100
+                cxt.clearRect(0, 0, canvas.width, canvas.height)
+                Flower()
+
+                raf = window.requestAnimationFrame(draw);
+            }
+
+            canvas.addEventListener("mouseover", (e) => {
+                raf = window.requestAnimationFrame(draw);
+            });
+
+            canvas.addEventListener("mouseout", (e) => {
+                window.cancelAnimationFrame(raf);
+            });
+
+            Flower()
+        </script>
+
+        <article>
+            <h2 id="link20" style="color: rgb(90, 199, 0);">Про себе</h2>
+            <p style="text-align: justify; margin-right: 100px; font-size: 40px; color: rgb(255, 217, 0);">
+                <img style="float: left; margin-right: 50px; width: 300px;" src="c:\Users\Дима\Downloads\photo_5346227462037697027_y.jpg">
+                Мене звати Дмитро мені 14років, я з міста Дружківка, мрію стати кіберспортсменом, захоплююсь  програмуванням. 
+                
+            </p>
+        </article>
+    </main>
+
+    
+    <footer>
+    </footer>
+</body>
+</html>
